@@ -1,0 +1,14 @@
+module github.com/tolaniverse/streamforge
+
+go 1.26.2
+
+require (
+	github.com/go-chi/chi v1.5.5
+	github.com/twmb/franz-go v1.22.2
+	github.com/twmb/franz-go/pkg/kmsg v1.15.0 // indirect
+)
+
+require (
+	github.com/klauspost/compress v1.20.3 // indirect
+	github.com/pierrec/lz4/v4 v4.1.33 // indirect
+)
