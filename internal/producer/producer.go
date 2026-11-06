@@ -4,10 +4,9 @@ package producer
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
-	"sync"
+	"time"
 
 	"github.com/twmb/franz-go/pkg/kgo"
 )
@@ -21,9 +20,10 @@ func PushEvent(w http.ResponseWriter, r *http.Request) {
 	}
 	defer r.Body.Close()
 
-	byteArray, err := json.Marshal(event)
+	eventBytes, err := json.Marshal(event)
 	if err != nil {
-		log.Fatal(err)
+		log.Printf("%v\n", err)
+		http.Error(w, "Could not parse event payload", http.StatusBadRequest)
 	}
 
 	seeds := []string{"localhost:9092"}
@@ -32,22 +32,31 @@ func PushEvent(w http.ResponseWriter, r *http.Request) {
 		kgo.ConsumeTopics("streamforge.events"),
 	)
 	if err != nil {
-		panic(err)
+		log.Printf("error on kafka %v\n", err)
+		http.Error(w, "Unable to initialize client", http.StatusInternalServerError)
 	}
 	defer cl.Close()
 
-	ctx := context.Background()
+	ctx, cancel := context.WithTimeout(
+		r.Context(),
+		5*time.Second,
+	)
+	defer cancel()
 
-	var wg sync.WaitGroup
-	wg.Add(1)
-	record := &kgo.Record{Topic: "streamforge.events", Value: byteArray}
-	cl.Produce(ctx, record, func(_ *kgo.Record, err error) {
-		defer wg.Done()
-		if err != nil {
-			fmt.Printf("record had a produce error: %v\n", err)
-		}
-	})
-	wg.Wait()
+	record := &kgo.Record{
+		Topic: "streamforge.events",
+		Value: eventBytes,
+	}
+	if err := cl.ProduceSync(ctx, record).FirstErr(); err != nil {
+		log.Printf("err :: could not produce message |> %v\n", err)
+		http.Error(
+			w,
+			"Unable to publish event",
+			http.StatusServiceUnavailable,
+		)
+		return
+	}
+
 	err = json.NewEncoder(w).Encode(APIResponse{
 		Status:  http.StatusAccepted,
 		Message: "Event Pushed Successfully",
