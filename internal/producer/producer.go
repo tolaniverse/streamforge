@@ -24,6 +24,7 @@ func PushEvent(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Printf("%v\n", err)
 		http.Error(w, "Could not parse event payload", http.StatusBadRequest)
+		return
 	}
 
 	seeds := []string{"localhost:9092"}
@@ -34,6 +35,7 @@ func PushEvent(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Printf("error on kafka %v\n", err)
 		http.Error(w, "Unable to initialize client", http.StatusInternalServerError)
+		return
 	}
 	defer cl.Close()
 
