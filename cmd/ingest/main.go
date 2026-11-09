@@ -1,9 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"context"
+	"errors"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/go-chi/chi"
 	"github.com/tolaniverse/streamforge/internal/producer"
@@ -12,6 +17,9 @@ import (
 )
 
 func main() {
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer stop()
+
 	seeds := []string{"localhost:9092"}
 	cl, err := kgo.NewClient(
 		kgo.SeedBrokers(seeds...),
@@ -28,7 +36,27 @@ func main() {
 	}
 	router.Routes(r, ep)
 
-	port := ":3000"
-	fmt.Printf("Listening at port %s", port)
-	http.ListenAndServe(":3000", r)
+	srv := &http.Server{
+		Addr:    ":3000",
+		Handler: r,
+	}
+
+	go func() {
+		log.Println("Server listening on :3000")
+		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
+			log.Fatalf("Server error: %v", err)
+		}
+	}()
+
+	<-ctx.Done()
+	log.Println("Shutdown signal received, draining connections...")
+
+	shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	if err := srv.Shutdown(shutdownCtx); err != nil {
+		log.Printf("Forced shutdown due to error: %v", err)
+	}
+
+	log.Println("Server exited cleanly")
 }
