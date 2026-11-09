@@ -42,7 +42,7 @@ func main() {
 	}
 
 	go func() {
-		log.Println("Server listening on :8080")
+		log.Println("Server listening on :3000")
 		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Fatalf("Server error: %v", err)
 		}
