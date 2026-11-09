@@ -11,7 +11,11 @@ import (
 	"github.com/twmb/franz-go/pkg/kgo"
 )
 
-func PushEvent(w http.ResponseWriter, r *http.Request) {
+type EventProducer struct {
+	KafkaClient *kgo.Client
+}
+
+func (ep *EventProducer) PushEvent(w http.ResponseWriter, r *http.Request) {
 	var event Events
 	err := json.NewDecoder(r.Body).Decode(&event)
 	if err != nil {
@@ -27,18 +31,6 @@ func PushEvent(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	seeds := []string{"localhost:9092"}
-	cl, err := kgo.NewClient(
-		kgo.SeedBrokers(seeds...),
-		kgo.ConsumeTopics("streamforge.events"),
-	)
-	if err != nil {
-		log.Printf("error on kafka %v\n", err)
-		http.Error(w, "Unable to initialize client", http.StatusInternalServerError)
-		return
-	}
-	defer cl.Close()
-
 	ctx, cancel := context.WithTimeout(
 		r.Context(),
 		5*time.Second,
@@ -49,7 +41,7 @@ func PushEvent(w http.ResponseWriter, r *http.Request) {
 		Topic: "streamforge.events",
 		Value: eventBytes,
 	}
-	if err := cl.ProduceSync(ctx, record).FirstErr(); err != nil {
+	if err := ep.KafkaClient.ProduceSync(ctx, record).FirstErr(); err != nil {
 		log.Printf("err :: could not produce message |> %v\n", err)
 		http.Error(
 			w,

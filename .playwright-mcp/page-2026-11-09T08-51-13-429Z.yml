@@ -1,0 +1,267 @@
+- generic [ref=e2]:
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#content"
+  - banner [ref=e4]:
+    - link [aria-hidden] [ref=e5] [cursor=pointer]:
+      - /url: https://arxiv.org/IgnoreMe
+    - link "archive home" [ref=e6] [cursor=pointer]:
+      - /url: https://arxiv.org/
+      - img "archive" [ref=e7]
+    - link "Search" [ref=e8] [cursor=pointer]:
+      - /url: https://arxiv.org/search
+    - navigation "Main navigation" [ref=e13]:
+      - link "Submit" [ref=e14] [cursor=pointer]:
+        - /url: https://arxiv.org/submit
+      - link "Donate" [ref=e15] [cursor=pointer]:
+        - /url: https://info.arxiv.org/about/donate.html
+      - link "Log in" [ref=e17] [cursor=pointer]:
+        - /url: https://arxiv.org/login
+  - main [ref=e18]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Computer Science > Computation and Language" [level=1] [ref=e23]
+        - generic [ref=e25]:
+          - generic [ref=e26]: "[Submitted on 9 Oct 2026]"
+          - 'heading "Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation" [level=1] [ref=e27]'
+          - generic [ref=e28]:
+            - link "Hermann Kumbong" [ref=e29] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Kumbong,+H
+            - text: ","
+            - link "Ishan S. Khare" [ref=e30] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Khare,+I+S
+            - text: ","
+            - link "Iddah Mlauzi" [ref=e31] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Mlauzi,+I
+            - text: ","
+            - link "Andrew Woen" [ref=e32] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Woen,+A
+            - text: ","
+            - link "Charles Ding" [ref=e33] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Ding,+C
+            - text: ","
+            - link "E. Kelly Buchanan" [ref=e34] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Buchanan,+E+K
+            - text: ","
+            - link "Simran Arora" [ref=e35] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Arora,+S
+            - text: ","
+            - link "Azalia Mirhoseini" [ref=e36] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=Mirhoseini,+A
+            - text: ","
+            - link "Christopher Ré" [ref=e37] [cursor=pointer]:
+              - /url: https://arxiv.org/search/cs?searchtype=author&query=R%C3%A9,+C
+          - blockquote [ref=e38]: "Diffusion language models (DLMs) offer parallel sampling for faster generation than autoregressive models, an increasingly important advantage as inference becomes a dominant computational workload. However, DLMs degrade quickly with fewer sampling steps, process the full sequence at every step, and require many passes over the dataset to reach good quality. We introduce Next-Concept Modeling (NCM), a two-stage, coarse-to-fine framework: a multiscale residual VQ-VAE encodes text into a hierarchy of discrete codes, and a transformer generates one level at a time, predicting all codes within a level in parallel. At matched parameter scales, NCM achieves better generative perplexity than the strongest DLM baseline on LM1B while running 21\\times faster. On OpenWebText, NCM is competitive with the strongest DLM while running 10\\times faster; on XSum, it matches the strongest DLM's ROUGE-L while being 31\\times faster. On the reasoning task of Sudoku, NCM outperforms autoregressive and diffusion baselines across all difficulty levels, using fewer function evaluations. On the reasoning task of Sudoku, NCM outperforms autoregressive and diffusion baselines across all difficulty levels, using fewer function evaluations."
+          - table "Additional metadata" [ref=e40]:
+            - rowgroup [ref=e41]:
+              - row [ref=e42]:
+                - cell "Subjects:" [ref=e43]
+                - cell "Computation and Language (cs.CL); Artificial Intelligence (cs.AI); Machine Learning (cs.LG)" [ref=e44]
+              - row [ref=e45]:
+                - cell "Cite as:" [ref=e46]
+                - cell [ref=e47]:
+                  - generic [ref=e48]:
+                    - link "arXiv:2610.14162" [ref=e49] [cursor=pointer]:
+                      - /url: https://arxiv.org/abs/2610.14162
+                    - text: "[cs.CL]"
+              - row [ref=e50]:
+                - cell [ref=e51]
+                - cell [ref=e52]:
+                  - text: (or
+                  - generic [ref=e53]:
+                    - link "arXiv:2610.14162v1" [ref=e54] [cursor=pointer]:
+                      - /url: https://arxiv.org/abs/2610.14162v1
+                    - text: "[cs.CL]"
+                  - text: for this version)
+              - row [ref=e55]:
+                - cell [ref=e56]
+                - cell [ref=e57]:
+                  - link "https://doi.org/10.48550/arXiv.2610.14162" [ref=e58] [cursor=pointer]:
+                    - /url: https://doi.org/10.48550/arXiv.2610.14162
+                  - button "Focus to learn more" [ref=e60]
+        - generic [ref=e63]:
+          - heading "Submission history" [level=2] [ref=e64]
+          - text: "From: Hermann Kumbong ["
+          - link "view email" [ref=e65] [cursor=pointer]:
+            - /url: /show-email/392caddc/2610.14162
+          - text: "]"
+          - strong [ref=e66]: "[v1]"
+          - text: Fri, 9 Oct 2026 17:49:45 UTC (352 KB)
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - heading "Access Paper:" [level=2] [ref=e69]
+          - list [ref=e70]:
+            - listitem [ref=e71]:
+              - link "View PDF" [ref=e72] [cursor=pointer]:
+                - /url: /pdf/2610.14162
+            - listitem [ref=e73]:
+              - link "HTML (experimental)" [ref=e74] [cursor=pointer]:
+                - /url: https://arxiv.org/html/2610.14162v1
+            - listitem [ref=e75]:
+              - link "TeX Source" [ref=e76] [cursor=pointer]:
+                - /url: /src/2610.14162
+          - link "view license" [ref=e78] [cursor=pointer]:
+            - /url: http://arxiv.org/licenses/nonexclusive-distrib/1.0/
+        - generic [ref=e79]:
+          - heading "Additional Features" [level=3] [ref=e80]
+          - list [ref=e81]:
+            - listitem [ref=e82]:
+              - link "Audio Summary" [ref=e83] [cursor=pointer]:
+                - /url: /audio/2610.14162
+        - generic [ref=e84]:
+          - heading "Current browse context:" [level=3] [ref=e85]
+          - generic [ref=e86]: cs.CL
+          - generic [ref=e87]:
+            - link "< prev" [ref=e89] [cursor=pointer]:
+              - /url: /prevnext?id=2610.14162&function=prev&context=cs.CL
+            - text: "|"
+            - link "next >" [ref=e91] [cursor=pointer]:
+              - /url: /prevnext?id=2610.14162&function=next&context=cs.CL
+          - generic [ref=e92]:
+            - link "new" [ref=e93] [cursor=pointer]:
+              - /url: /list/cs.CL/new
+            - text: "|"
+            - link "recent" [ref=e94] [cursor=pointer]:
+              - /url: /list/cs.CL/recent
+            - text: "|"
+            - link "2026-10" [ref=e95] [cursor=pointer]:
+              - /url: /list/cs.CL/2026-10
+          - generic [ref=e96]:
+            - text: "Change to browse by:"
+            - generic [ref=e97]:
+              - link "cs" [ref=e98] [cursor=pointer]:
+                - /url: /abs/2610.14162?context=cs
+              - link "cs.AI" [ref=e99] [cursor=pointer]:
+                - /url: /abs/2610.14162?context=cs.AI
+              - link "cs.LG" [ref=e100] [cursor=pointer]:
+                - /url: /abs/2610.14162?context=cs.LG
+        - generic [ref=e101]:
+          - heading "References & Citations" [level=3] [ref=e102]
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "SciX" [ref=e105] [cursor=pointer]:
+                - /url: https://scixplorer.org/abs/arXiv:2610.14162
+            - listitem [ref=e106]:
+              - link "Google Scholar" [ref=e107] [cursor=pointer]:
+                - /url: https://scholar.google.com/scholar_lookup?arxiv_id=2610.14162
+            - listitem [ref=e108]:
+              - link "Semantic Scholar" [ref=e109] [cursor=pointer]:
+                - /url: https://api.semanticscholar.org/arXiv:2610.14162
+        - button "export BibTeX citation" [ref=e111]
+        - generic [ref=e112]:
+          - heading "Bookmark" [level=3] [ref=e114]
+          - link [ref=e115] [cursor=pointer]:
+            - /url: "http://www.bibsonomy.org/BibtexHandler?requTask=upload&url=https://arxiv.org/abs/2610.14162&description=Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation"
+            - img "BibSonomy" [ref=e116]
+          - link [ref=e117] [cursor=pointer]:
+            - /url: "https://reddit.com/submit?url=https://arxiv.org/abs/2610.14162&title=Next-Concept Modeling: Fast, Parallel Coarse-to-Fine Text Generation"
+            - img "Reddit" [ref=e118]
+      - tablist "arXivLabs tools" [ref=e120]:
+        - radio "Bibliographic Tools" [checked] [ref=e121]
+        - tab "Bibliographic Tools" [selected] [ref=e122] [cursor=pointer]
+        - tabpanel "Bibliographic Tools" [ref=e123]:
+          - heading "Bibliographic and Citation Tools" [level=1] [ref=e124]
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - generic [ref=e128]:
+                - checkbox "Bibliographic Explorer Toggle"
+                - generic [ref=e129] [cursor=pointer]
+                - generic [ref=e130]: Bibliographic Explorer Toggle
+              - generic [ref=e131]:
+                - text: Bibliographic Explorer
+                - emphasis [ref=e132]:
+                  - text: (
+                  - link "What is the Explorer?" [ref=e133] [cursor=pointer]:
+                    - /url: https://info.arxiv.org/labs/showcase.html#arxiv-bibliographic-explorer
+                  - text: )
+            - generic [ref=e134]:
+              - generic [ref=e136]:
+                - checkbox "Connected Papers"
+                - generic [ref=e137] [cursor=pointer]
+                - generic [ref=e138]: Connected Papers Toggle
+              - generic [ref=e139]:
+                - text: Connected Papers
+                - emphasis [ref=e140]:
+                  - text: (
+                  - link "What is Connected Papers?" [ref=e141] [cursor=pointer]:
+                    - /url: https://www.connectedpapers.com/about
+                  - text: )
+            - generic [ref=e142]:
+              - generic [ref=e144]:
+                - checkbox "Litmaps"
+                - generic [ref=e145] [cursor=pointer]
+                - generic [ref=e146]: Litmaps Toggle
+              - generic [ref=e147]:
+                - text: Litmaps
+                - emphasis [ref=e148]:
+                  - text: (
+                  - link "What is Litmaps?" [ref=e149] [cursor=pointer]:
+                    - /url: https://www.litmaps.co/
+                  - text: )
+            - generic [ref=e150]:
+              - generic [ref=e152]:
+                - checkbox "scite Smart Citations"
+                - generic [ref=e153] [cursor=pointer]
+                - generic [ref=e154]: scite.ai Toggle
+              - generic [ref=e155]:
+                - text: scite Smart Citations
+                - emphasis [ref=e156]:
+                  - text: (
+                  - link "What are Smart Citations?" [ref=e157] [cursor=pointer]:
+                    - /url: https://www.scite.ai/
+                  - text: )
+        - radio "Code, Data, Media" [ref=e161]
+        - tab "Code, Data, Media" [ref=e162] [cursor=pointer]
+        - radio "Demos" [ref=e163]
+        - tab "Demos" [ref=e164] [cursor=pointer]
+        - radio "Related Papers" [ref=e165]
+        - tab "Related Papers" [ref=e166] [cursor=pointer]
+        - radio "About arXivLabs" [ref=e167]
+        - tab "About arXivLabs" [ref=e168] [cursor=pointer]
+      - generic [ref=e169]:
+        - link "Which authors of this paper are endorsers?" [ref=e170] [cursor=pointer]:
+          - /url: /auth/show-endorsers/2610.14162
+        - text: "|"
+        - link "Disable MathJax" [ref=e171] [cursor=pointer]:
+          - /url: javascript:setMathjaxCookie()
+        - text: (
+        - link "What is MathJax?" [ref=e172] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help/mathjax.html
+        - text: )
+  - contentinfo [ref=e173]:
+    - generic [ref=e175]:
+      - generic [ref=e176]:
+        - text: We gratefully acknowledge support from our
+        - link [ref=e177] [cursor=pointer]:
+          - /url: https://info.arxiv.org/about/major_funders.html
+          - strong [ref=e178]: major funders
+        - text: ","
+        - link [ref=e179] [cursor=pointer]:
+          - /url: https://info.arxiv.org/about/ourmembers.html
+          - strong [ref=e180]: member institutions
+        - text: ", and all contributors."
+      - navigation "Site navigation" [ref=e181]:
+        - link "About" [ref=e182] [cursor=pointer]:
+          - /url: https://info.arxiv.org/about
+        - generic [aria-hidden] [ref=e183]: ·
+        - link "Help" [ref=e184] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help
+        - generic [aria-hidden] [ref=e185]: ·
+        - link "Contact" [ref=e186] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help/contact.html
+        - generic [aria-hidden] [ref=e187]: ·
+        - link "Subscribe" [ref=e188] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help/subscribe.html
+        - generic [aria-hidden] [ref=e189]: ·
+        - link "Copyright" [ref=e190] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help/license/index.html
+        - generic [aria-hidden] [ref=e191]: ·
+        - link "Privacy" [ref=e192] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help/policies/privacy_policy.html
+        - generic [aria-hidden] [ref=e193]: ·
+        - link "Accessibility" [ref=e194] [cursor=pointer]:
+          - /url: https://info.arxiv.org/help/web_accessibility.html
+        - generic [aria-hidden] [ref=e195]: ·
+        - link "Operational Status (opens in new tab)" [ref=e196] [cursor=pointer]:
+          - /url: https://status.arxiv.org/
+          - text: Operational Status
+          - generic [ref=e197]: (opens in new tab)
