@@ -41,15 +41,20 @@ func main() {
 		Handler: r,
 	}
 
+	serverErrors := make(chan error, 1)
 	go func() {
 		log.Println("Server listening on :3000")
 		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
-			log.Fatalf("Server error: %v", err)
+			serverErrors <- err
 		}
 	}()
 
-	<-ctx.Done()
-	log.Println("Shutdown signal received, draining connections...")
+	select {
+	case <-ctx.Done():
+		log.Println("Shutdown signal received, draining connections...")
+	case <-serverErrors:
+		log.Printf("HTTP server failed: %v", err)
+	}
 
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
